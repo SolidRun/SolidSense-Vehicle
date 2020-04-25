@@ -1,0 +1,267 @@
+[
+ {
+  "name": "FUEL_STATUS",
+  "desc": "Fuel System Status",
+  "pid": 3
+ },
+ {
+  "name": "ENGINE_LOAD",
+  "desc": "Calculated Engine Load",
+  "pid": 4
+ },
+ {
+  "name": "COOLANT_TEMP",
+  "desc": "Engine Coolant Temperature",
+  "pid": 5
+ },
+ {
+  "name": "FUEL_PRESSURE",
+  "desc": "Fuel Pressure",
+  "pid": 10
+ },
+ {
+  "name": "INTAKE_PRESSURE",
+  "desc": "Intake Manifold Pressure",
+  "pid": 11
+ },
+ {
+  "name": "RPM",
+  "desc": "Engine RPM",
+  "pid": 12
+ },
+ {
+  "name": "SPEED",
+  "desc": "Vehicle Speed",
+  "pid": 13
+ },
+ {
+  "name": "TIMING_ADVANCE",
+  "desc": "Timing Advance",
+  "pid": 14
+ },
+ {
+  "name": "INTAKE_TEMP",
+  "desc": "Intake Air Temp",
+  "pid": 15
+ },
+ {
+  "name": "MAF",
+  "desc": "Air Flow Rate (MAF)",
+  "pid": 16
+ },
+ {
+  "name": "THROTTLE_POS",
+  "desc": "Throttle Position",
+  "pid": 17
+ },
+ {
+  "name": "AIR_STATUS",
+  "desc": "Secondary Air Status",
+  "pid": 18
+ },
+ {
+  "name": "O2_SENSORS",
+  "desc": "O2 Sensors Present",
+  "pid": 19
+ },
+ {
+  "name": "AUX_INPUT_STATUS",
+  "desc": "Auxiliary input status (power take off)",
+  "pid": 30
+ },
+ {
+  "name": "RUN_TIME",
+  "desc": "Engine Run Time",
+  "pid": 31
+ },
+ {
+  "name": "DISTANCE_W_MIL",
+  "desc": "Distance Traveled with MIL on",
+  "pid": 33
+ },
+ {
+  "name": "FUEL_RAIL_PRESSURE_VAC",
+  "desc": "Fuel Rail Pressure (relative to vacuum)",
+  "pid": 34
+ },
+ {
+  "name": "FUEL_RAIL_PRESSURE_DIRECT",
+  "desc": "Fuel Rail Pressure (direct inject)",
+  "pid": 35
+ },
+ {
+  "name": "EGR_ERROR",
+  "desc": "EGR Error",
+  "pid": 45
+ },
+ {
+  "name": "EVAPORATIVE_PURGE",
+  "desc": "Commanded Evaporative Purge",
+  "pid": 46
+ },
+ {
+  "name": "FUEL_LEVEL",
+  "desc": "Fuel Level Input",
+  "pid": 47
+ },
+ {
+  "name": "WARMUPS_SINCE_DTC_CLEAR",
+  "desc": "Number of warm-ups since codes cleared",
+  "pid": 48
+ },
+ {
+  "name": "DISTANCE_SINCE_DTC_CLEAR",
+  "desc": "Distance traveled since codes cleared",
+  "pid": 49
+ },
+ {
+  "name": "EVAP_VAPOR_PRESSURE",
+  "desc": "Evaporative system vapor pressure",
+  "pid": 50
+ },
+ {
+  "name": "BAROMETRIC_PRESSURE",
+  "desc": "Barometric Pressure",
+  "pid": 51
+ },
+ {
+  "name": "CATALYST_TEMP_B1S1",
+  "desc": "Catalyst Temperature: Bank 1 - Sensor 1",
+  "pid": 60
+ },
+ {
+  "name": "CATALYST_TEMP_B2S1",
+  "desc": "Catalyst Temperature: Bank 2 - Sensor 1",
+  "pid": 61
+ },
+ {
+  "name": "CATALYST_TEMP_B1S2",
+  "desc": "Catalyst Temperature: Bank 1 - Sensor 2",
+  "pid": 62
+ },
+ {
+  "name": "CATALYST_TEMP_B2S2",
+  "desc": "Catalyst Temperature: Bank 2 - Sensor 2",
+  "pid": 63
+ },
+ {
+  "name": "STATUS_DRIVE_CYCLE",
+  "desc": "Monitor status this drive cycle",
+  "pid": 65
+ },
+ {
+  "name": "CONTROL_MODULE_VOLTAGE",
+  "desc": "Control module voltage",
+  "pid": 66
+ },
+ {
+  "name": "ABSOLUTE_LOAD",
+  "desc": "Absolute load value",
+  "pid": 67
+ },
+ {
+  "name": "COMMANDED_EQUIV_RATIO",
+  "desc": "Commanded equivalence ratio",
+  "pid": 68
+ },
+ {
+  "name": "RELATIVE_THROTTLE_POS",
+  "desc": "Relative throttle position",
+  "pid": 69
+ },
+ {
+  "name": "AMBIANT_AIR_TEMP",
+  "desc": "Ambient air temperature",
+  "pid": 70
+ },
+ {
+  "name": "THROTTLE_POS_B",
+  "desc": "Absolute throttle position B",
+  "pid": 71
+ },
+ {
+  "name": "THROTTLE_POS_C",
+  "desc": "Absolute throttle position C",
+  "pid": 72
+ },
+ {
+  "name": "ACCELERATOR_POS_D",
+  "desc": "Accelerator pedal position D",
+  "pid": 73
+ },
+ {
+  "name": "ACCELERATOR_POS_E",
+  "desc": "Accelerator pedal position E",
+  "pid": 74
+ },
+ {
+  "name": "ACCELERATOR_POS_F",
+  "desc": "Accelerator pedal position F",
+  "pid": 75
+ },
+ {
+  "name": "THROTTLE_ACTUATOR",
+  "desc": "Commanded throttle actuator",
+  "pid": 76
+ },
+ {
+  "name": "RUN_TIME_MIL",
+  "desc": "Time run with MIL on",
+  "pid": 77
+ },
+ {
+  "name": "TIME_SINCE_DTC_CLEARED",
+  "desc": "Time since trouble codes cleared",
+  "pid": 78
+ },
+ {
+  "name": "MAX_VALUES",
+  "desc": "Various Max values",
+  "pid": 79
+ },
+ {
+  "name": "MAX_MAF",
+  "desc": "Maximum value for mass air flow sensor",
+  "pid": 80
+ },
+ {
+  "name": "FUEL_TYPE",
+  "desc": "Fuel Type",
+  "pid": 81
+ },
+ {
+  "name": "ETHANOL_PERCENT",
+  "desc": "Ethanol Fuel Percent",
+  "pid": 82
+ },
+ {
+  "name": "EVAP_VAPOR_PRESSURE_ABS",
+  "desc": "Absolute Evap system Vapor Pressure",
+  "pid": 83
+ },
+ {
+  "name": "EVAP_VAPOR_PRESSURE_ALT",
+  "desc": "Evap system vapor pressure",
+  "pid": 84
+ },
+ {
+  "name": "OIL_TEMP",
+  "desc": "Engine oil temperature",
+  "pid": 92
+ },
+ {
+  "name": "FUEL_INJECT_TIMING",
+  "desc": "Fuel injection timing",
+  "pid": 93
+ },
+ {
+  "name": "FUEL_RATE",
+  "desc": "Engine fuel rate",
+  "pid": 94
+ },
+ {
+  "name": "EMISSION_REQ",
+  "desc": "Designed emission requirements",
+  "pid": 95
+ }
+]

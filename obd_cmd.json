@@ -1,0 +1,482 @@
+[
+ {
+  "name": "PIDS_A",
+  "desc": "Supported PIDs [01-20]",
+  "pid": 0
+ },
+ {
+  "name": "STATUS",
+  "desc": "Status since DTCs cleared",
+  "pid": 1
+ },
+ {
+  "name": "FREEZE_DTC",
+  "desc": "DTC that triggered the freeze frame",
+  "pid": 2
+ },
+ {
+  "name": "FUEL_STATUS",
+  "desc": "Fuel System Status",
+  "pid": 3
+ },
+ {
+  "name": "ENGINE_LOAD",
+  "desc": "Calculated Engine Load",
+  "pid": 4
+ },
+ {
+  "name": "COOLANT_TEMP",
+  "desc": "Engine Coolant Temperature",
+  "pid": 5
+ },
+ {
+  "name": "SHORT_FUEL_TRIM_1",
+  "desc": "Short Term Fuel Trim - Bank 1",
+  "pid": 6
+ },
+ {
+  "name": "LONG_FUEL_TRIM_1",
+  "desc": "Long Term Fuel Trim - Bank 1",
+  "pid": 7
+ },
+ {
+  "name": "SHORT_FUEL_TRIM_2",
+  "desc": "Short Term Fuel Trim - Bank 2",
+  "pid": 8
+ },
+ {
+  "name": "LONG_FUEL_TRIM_2",
+  "desc": "Long Term Fuel Trim - Bank 2",
+  "pid": 9
+ },
+ {
+  "name": "FUEL_PRESSURE",
+  "desc": "Fuel Pressure",
+  "pid": 10
+ },
+ {
+  "name": "INTAKE_PRESSURE",
+  "desc": "Intake Manifold Pressure",
+  "pid": 11
+ },
+ {
+  "name": "RPM",
+  "desc": "Engine RPM",
+  "pid": 12
+ },
+ {
+  "name": "SPEED",
+  "desc": "Vehicle Speed",
+  "pid": 13
+ },
+ {
+  "name": "TIMING_ADVANCE",
+  "desc": "Timing Advance",
+  "pid": 14
+ },
+ {
+  "name": "INTAKE_TEMP",
+  "desc": "Intake Air Temp",
+  "pid": 15
+ },
+ {
+  "name": "MAF",
+  "desc": "Air Flow Rate (MAF)",
+  "pid": 16
+ },
+ {
+  "name": "THROTTLE_POS",
+  "desc": "Throttle Position",
+  "pid": 17
+ },
+ {
+  "name": "AIR_STATUS",
+  "desc": "Secondary Air Status",
+  "pid": 18
+ },
+ {
+  "name": "O2_SENSORS",
+  "desc": "O2 Sensors Present",
+  "pid": 19
+ },
+ {
+  "name": "O2_B1S1",
+  "desc": "O2: Bank 1 - Sensor 1 Voltage",
+  "pid": 20
+ },
+ {
+  "name": "O2_B1S2",
+  "desc": "O2: Bank 1 - Sensor 2 Voltage",
+  "pid": 21
+ },
+ {
+  "name": "O2_B1S3",
+  "desc": "O2: Bank 1 - Sensor 3 Voltage",
+  "pid": 22
+ },
+ {
+  "name": "O2_B1S4",
+  "desc": "O2: Bank 1 - Sensor 4 Voltage",
+  "pid": 23
+ },
+ {
+  "name": "O2_B2S1",
+  "desc": "O2: Bank 2 - Sensor 1 Voltage",
+  "pid": 24
+ },
+ {
+  "name": "O2_B2S2",
+  "desc": "O2: Bank 2 - Sensor 2 Voltage",
+  "pid": 25
+ },
+ {
+  "name": "O2_B2S3",
+  "desc": "O2: Bank 2 - Sensor 3 Voltage",
+  "pid": 26
+ },
+ {
+  "name": "O2_B2S4",
+  "desc": "O2: Bank 2 - Sensor 4 Voltage",
+  "pid": 27
+ },
+ {
+  "name": "OBD_COMPLIANCE",
+  "desc": "OBD Standards Compliance",
+  "pid": 28
+ },
+ {
+  "name": "O2_SENSORS_ALT",
+  "desc": "O2 Sensors Present (alternate)",
+  "pid": 29
+ },
+ {
+  "name": "AUX_INPUT_STATUS",
+  "desc": "Auxiliary input status (power take off)",
+  "pid": 30
+ },
+ {
+  "name": "RUN_TIME",
+  "desc": "Engine Run Time",
+  "pid": 31
+ },
+ {
+  "name": "PIDS_B",
+  "desc": "Supported PIDs [21-40]",
+  "pid": 32
+ },
+ {
+  "name": "DISTANCE_W_MIL",
+  "desc": "Distance Traveled with MIL on",
+  "pid": 33
+ },
+ {
+  "name": "FUEL_RAIL_PRESSURE_VAC",
+  "desc": "Fuel Rail Pressure (relative to vacuum)",
+  "pid": 34
+ },
+ {
+  "name": "FUEL_RAIL_PRESSURE_DIRECT",
+  "desc": "Fuel Rail Pressure (direct inject)",
+  "pid": 35
+ },
+ {
+  "name": "O2_S1_WR_VOLTAGE",
+  "desc": "02 Sensor 1 WR Lambda Voltage",
+  "pid": 36
+ },
+ {
+  "name": "O2_S2_WR_VOLTAGE",
+  "desc": "02 Sensor 2 WR Lambda Voltage",
+  "pid": 37
+ },
+ {
+  "name": "O2_S3_WR_VOLTAGE",
+  "desc": "02 Sensor 3 WR Lambda Voltage",
+  "pid": 38
+ },
+ {
+  "name": "O2_S4_WR_VOLTAGE",
+  "desc": "02 Sensor 4 WR Lambda Voltage",
+  "pid": 39
+ },
+ {
+  "name": "O2_S5_WR_VOLTAGE",
+  "desc": "02 Sensor 5 WR Lambda Voltage",
+  "pid": 40
+ },
+ {
+  "name": "O2_S6_WR_VOLTAGE",
+  "desc": "02 Sensor 6 WR Lambda Voltage",
+  "pid": 41
+ },
+ {
+  "name": "O2_S7_WR_VOLTAGE",
+  "desc": "02 Sensor 7 WR Lambda Voltage",
+  "pid": 42
+ },
+ {
+  "name": "O2_S8_WR_VOLTAGE",
+  "desc": "02 Sensor 8 WR Lambda Voltage",
+  "pid": 43
+ },
+ {
+  "name": "COMMANDED_EGR",
+  "desc": "Commanded EGR",
+  "pid": 44
+ },
+ {
+  "name": "EGR_ERROR",
+  "desc": "EGR Error",
+  "pid": 45
+ },
+ {
+  "name": "EVAPORATIVE_PURGE",
+  "desc": "Commanded Evaporative Purge",
+  "pid": 46
+ },
+ {
+  "name": "FUEL_LEVEL",
+  "desc": "Fuel Level Input",
+  "pid": 47
+ },
+ {
+  "name": "WARMUPS_SINCE_DTC_CLEAR",
+  "desc": "Number of warm-ups since codes cleared",
+  "pid": 48
+ },
+ {
+  "name": "DISTANCE_SINCE_DTC_CLEAR",
+  "desc": "Distance traveled since codes cleared",
+  "pid": 49
+ },
+ {
+  "name": "EVAP_VAPOR_PRESSURE",
+  "desc": "Evaporative system vapor pressure",
+  "pid": 50
+ },
+ {
+  "name": "BAROMETRIC_PRESSURE",
+  "desc": "Barometric Pressure",
+  "pid": 51
+ },
+ {
+  "name": "O2_S1_WR_CURRENT",
+  "desc": "02 Sensor 1 WR Lambda Current",
+  "pid": 52
+ },
+ {
+  "name": "O2_S2_WR_CURRENT",
+  "desc": "02 Sensor 2 WR Lambda Current",
+  "pid": 53
+ },
+ {
+  "name": "O2_S3_WR_CURRENT",
+  "desc": "02 Sensor 3 WR Lambda Current",
+  "pid": 54
+ },
+ {
+  "name": "O2_S4_WR_CURRENT",
+  "desc": "02 Sensor 4 WR Lambda Current",
+  "pid": 55
+ },
+ {
+  "name": "O2_S5_WR_CURRENT",
+  "desc": "02 Sensor 5 WR Lambda Current",
+  "pid": 56
+ },
+ {
+  "name": "O2_S6_WR_CURRENT",
+  "desc": "02 Sensor 6 WR Lambda Current",
+  "pid": 57
+ },
+ {
+  "name": "O2_S7_WR_CURRENT",
+  "desc": "02 Sensor 7 WR Lambda Current",
+  "pid": 58
+ },
+ {
+  "name": "O2_S8_WR_CURRENT",
+  "desc": "02 Sensor 8 WR Lambda Current",
+  "pid": 59
+ },
+ {
+  "name": "CATALYST_TEMP_B1S1",
+  "desc": "Catalyst Temperature: Bank 1 - Sensor 1",
+  "pid": 60
+ },
+ {
+  "name": "CATALYST_TEMP_B2S1",
+  "desc": "Catalyst Temperature: Bank 2 - Sensor 1",
+  "pid": 61
+ },
+ {
+  "name": "CATALYST_TEMP_B1S2",
+  "desc": "Catalyst Temperature: Bank 1 - Sensor 2",
+  "pid": 62
+ },
+ {
+  "name": "CATALYST_TEMP_B2S2",
+  "desc": "Catalyst Temperature: Bank 2 - Sensor 2",
+  "pid": 63
+ },
+ {
+  "name": "PIDS_C",
+  "desc": "Supported PIDs [41-60]",
+  "pid": 64
+ },
+ {
+  "name": "STATUS_DRIVE_CYCLE",
+  "desc": "Monitor status this drive cycle",
+  "pid": 65
+ },
+ {
+  "name": "CONTROL_MODULE_VOLTAGE",
+  "desc": "Control module voltage",
+  "pid": 66
+ },
+ {
+  "name": "ABSOLUTE_LOAD",
+  "desc": "Absolute load value",
+  "pid": 67
+ },
+ {
+  "name": "COMMANDED_EQUIV_RATIO",
+  "desc": "Commanded equivalence ratio",
+  "pid": 68
+ },
+ {
+  "name": "RELATIVE_THROTTLE_POS",
+  "desc": "Relative throttle position",
+  "pid": 69
+ },
+ {
+  "name": "AMBIANT_AIR_TEMP",
+  "desc": "Ambient air temperature",
+  "pid": 70
+ },
+ {
+  "name": "THROTTLE_POS_B",
+  "desc": "Absolute throttle position B",
+  "pid": 71
+ },
+ {
+  "name": "THROTTLE_POS_C",
+  "desc": "Absolute throttle position C",
+  "pid": 72
+ },
+ {
+  "name": "ACCELERATOR_POS_D",
+  "desc": "Accelerator pedal position D",
+  "pid": 73
+ },
+ {
+  "name": "ACCELERATOR_POS_E",
+  "desc": "Accelerator pedal position E",
+  "pid": 74
+ },
+ {
+  "name": "ACCELERATOR_POS_F",
+  "desc": "Accelerator pedal position F",
+  "pid": 75
+ },
+ {
+  "name": "THROTTLE_ACTUATOR",
+  "desc": "Commanded throttle actuator",
+  "pid": 76
+ },
+ {
+  "name": "RUN_TIME_MIL",
+  "desc": "Time run with MIL on",
+  "pid": 77
+ },
+ {
+  "name": "TIME_SINCE_DTC_CLEARED",
+  "desc": "Time since trouble codes cleared",
+  "pid": 78
+ },
+ {
+  "name": "MAX_VALUES",
+  "desc": "Various Max values",
+  "pid": 79
+ },
+ {
+  "name": "MAX_MAF",
+  "desc": "Maximum value for mass air flow sensor",
+  "pid": 80
+ },
+ {
+  "name": "FUEL_TYPE",
+  "desc": "Fuel Type",
+  "pid": 81
+ },
+ {
+  "name": "ETHANOL_PERCENT",
+  "desc": "Ethanol Fuel Percent",
+  "pid": 82
+ },
+ {
+  "name": "EVAP_VAPOR_PRESSURE_ABS",
+  "desc": "Absolute Evap system Vapor Pressure",
+  "pid": 83
+ },
+ {
+  "name": "EVAP_VAPOR_PRESSURE_ALT",
+  "desc": "Evap system vapor pressure",
+  "pid": 84
+ },
+ {
+  "name": "SHORT_O2_TRIM_B1",
+  "desc": "Short term secondary O2 trim - Bank 1",
+  "pid": 85
+ },
+ {
+  "name": "LONG_O2_TRIM_B1",
+  "desc": "Long term secondary O2 trim - Bank 1",
+  "pid": 86
+ },
+ {
+  "name": "SHORT_O2_TRIM_B2",
+  "desc": "Short term secondary O2 trim - Bank 2",
+  "pid": 87
+ },
+ {
+  "name": "LONG_O2_TRIM_B2",
+  "desc": "Long term secondary O2 trim - Bank 2",
+  "pid": 88
+ },
+ {
+  "name": "FUEL_RAIL_PRESSURE_ABS",
+  "desc": "Fuel rail pressure (absolute)",
+  "pid": 89
+ },
+ {
+  "name": "RELATIVE_ACCEL_POS",
+  "desc": "Relative accelerator pedal position",
+  "pid": 90
+ },
+ {
+  "name": "HYBRID_BATTERY_REMAINING",
+  "desc": "Hybrid battery pack remaining life",
+  "pid": 91
+ },
+ {
+  "name": "OIL_TEMP",
+  "desc": "Engine oil temperature",
+  "pid": 92
+ },
+ {
+  "name": "FUEL_INJECT_TIMING",
+  "desc": "Fuel injection timing",
+  "pid": 93
+ },
+ {
+  "name": "FUEL_RATE",
+  "desc": "Engine fuel rate",
+  "pid": 94
+ },
+ {
+  "name": "EMISSION_REQ",
+  "desc": "Designed emission requirements",
+  "pid": 95
+ }
+]

@@ -1,0 +1,12 @@
+[Unit]
+Description=SolidSense Vehicle OBD connection server
+Requires=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3  /opt/SolidSense/vehicle/vehicle_obd_server.py
+RestartSec=6
+
+[Install]
+WantedBy=multi-user.target
