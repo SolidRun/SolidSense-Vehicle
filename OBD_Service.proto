@@ -18,6 +18,7 @@ message Start_OBD {
 	string MAC=1;	// MAC address of the dongle
 	
 	}
+	
 
 message OBD_CMD_value {
 	string cmd=1;
@@ -47,9 +48,24 @@ message OBD_cmd {
 		Specific=1;
 		}
 	RequestResult request=1;	
-	string command_list=2; // only if request == specific
-	string rules=4;
+	string commands=2; // only if request == specific (comma separated values)
+	string rules=4; // JSON encoded
 }
+
+message OBD_StatusRequest {
+	string request=1;  // min, vehicle_cmds, active_cmds, actual_cmds
+}
+
+message OBD_status {
+	bool connected =1;
+	bool engine_on =2;
+	bool autoconnect=3;
+	string state = 7; // if connected
+	string protocol=4; // if connected
+	string MAC = 5; // if autoconnect = True
+	string commands = 6; // (comma separated values)
+}
+	
 
 
 //  ==============================================================
@@ -57,7 +73,7 @@ message OBD_cmd {
 //  ===============================================================
 
 service OBD_Service {
-
+	rpc Status(OBD_StatusRequest) returns (OBD_status);
 	rpc Connect(Start_OBD) returns(OBD_Result);
 	rpc Read(OBD_cmd) returns (stream OBD_Result);
 	rpc Stop(OBD_cmd) returns (OBD_Result);	

@@ -48,6 +48,12 @@ class OBDActiveCMD():
         self._active=True
 
 
+def  OBDCmdList(cmds):
+    out=cmds[0].name
+    for cmd in cmds[1:]:
+        out += ","
+        out += cmd.name
+    return out
 
 
 class VehicleService(object):
@@ -64,6 +70,7 @@ class VehicleService(object):
         self._obd_status="Unknown"
         self._error=""
         self._bound=False
+        self._all_cmds=None
 
         self.values={}
         #
@@ -99,6 +106,21 @@ class VehicleService(object):
            o_cmd.setActive()
            self._actual_commands.append(o_cmd.command)
 
+    def setRequestCommands(self,cmd_list):
+        self._request_commands=[]
+        for cmd in cmd_list :
+            try:
+                o_cmd=self._default_commands[cmd]
+            except KeyError :
+                continue
+            if o_cmd.active :
+                self._request_commands.append(o_cmd.command)
+
+    def actualCmdsNum(self):
+        return len(self._request_commands)
+
+    def clear_error(self):
+        self._error=""
 
     def connect(self,MAC):
         '''
@@ -166,6 +188,7 @@ class VehicleService(object):
         if self._connected :
             self._all_cmds = self.odb_connection.supported_commands
             self.setActualCommands(self._all_cmds)
+            self._request_commands=self._actual_commands
 
             # self._logger.debug("OBD connection:"+self._obd_status+' protocol ' + self.odb_connection.protocol_name())
             self._error= 'CONNECTED! Protocol '+self.odb_connection.protocol_name()+' #CMDS:'+str(len(self._all_cmds))
@@ -186,6 +209,11 @@ class VehicleService(object):
         self._elm_voltage=self._read_odb(obd.commands.ELM_VOLTAGE)
         self._logger.debug("ELM VERSION:"+self._elm_version+" Voltage:"+str(self._elm_voltage))
 
+    def obd_protocol(self):
+        if self._connected :
+            return self.odb_connection.protocol_name()
+        else:
+            return ""
 
     def disconnect(self):
         if not self._connected : return
@@ -256,7 +284,7 @@ class VehicleService(object):
         # if we are here let's go for the reading
         #
         self.nbc_read=1
-        for cmd in self._actual_commands:
+        for cmd in self._request_commands:
 
             res=self._read_odb(cmd)  # exception is raised if problems lies below
 
@@ -292,6 +320,19 @@ class VehicleService(object):
     def get_values(self):
         return self.values.values()
 
+    def getAllCmdsList(self):
+        if self._all_cmds != None:
+            return OBDCmdList(self._all_cmds)
+        else:
+            return OBDCmdList(obd.commands[1])
+
+    def getActualCmdsList(self):
+        if self._request_commands != None:
+            return OBDCmdList(self._request_commands)
+        else:
+            return ""
+
+
     def dumpAllcommands(self,file,mode) :
         cmds=obd.commands.modes[mode]
         all_cmd=[]
@@ -309,6 +350,24 @@ class VehicleService(object):
     def dumpDefaultCMD(self):
         for cdm in self._default_commands.values():
             print(cdm.command)
+
+    def storeValues(self,fd):
+        out={}
+        out["timestamp"]=datetime.datetime.now().isoformat(' ')
+        out["engine_on"]=self.engine_on
+        values=[]
+        for cmd,val in self.values.items():
+            if val._genericType == 0:
+                res=(cmd.name,val._magnitude,val._unit)
+            else:
+                res=(cmd.name,str(val._magnitude))
+            values.append(res)
+        out["values"]=values
+        buf=json.dumps(out)
+        fd.write(buf)
+        fd.write('\n')
+        fd.flush()
+
 
 class CMD_Value:
 
@@ -357,6 +416,11 @@ def main():
     elif sys.argv[1] == "test" :
         vs.dumpDefaultCMD()
         return
+    if len(sys.argv) > 2 and sys.argv[2]  == "store" :
+        fd=open('/data/solidsense/obd_result.log','w')
+        store=True
+    else:
+        store=False
 
     print ("Connecting to",sys.argv[1])
     if not vs.connect(sys.argv[1]) :
@@ -366,11 +430,15 @@ def main():
     try:
         while True:
             vs.read_data()
+            if store :
+                vs.storeValues(fd)
             vs.printValues()
-            time.sleep(20.)
+            time.sleep(10.)
     except Exception as e :
         print("OBD read stopped by:",e)
         vs.disconnect()
+    if store :
+        fd.close()
     '''
     vs.fromMAC(sys.argv[1])
     try:

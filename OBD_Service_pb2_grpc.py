@@ -17,6 +17,11 @@ class OBD_ServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
+    self.Status = channel.unary_unary(
+        '/OBD_Service/Status',
+        request_serializer=OBD__Service__pb2.OBD_StatusRequest.SerializeToString,
+        response_deserializer=OBD__Service__pb2.OBD_status.FromString,
+        )
     self.Connect = channel.unary_unary(
         '/OBD_Service/Connect',
         request_serializer=OBD__Service__pb2.Start_OBD.SerializeToString,
@@ -40,6 +45,13 @@ class OBD_ServiceServicer(object):
   ===============================================================
 
   """
+
+  def Status(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
 
   def Connect(self, request, context):
     # missing associated documentation comment in .proto file
@@ -65,6 +77,11 @@ class OBD_ServiceServicer(object):
 
 def add_OBD_ServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
+      'Status': grpc.unary_unary_rpc_method_handler(
+          servicer.Status,
+          request_deserializer=OBD__Service__pb2.OBD_StatusRequest.FromString,
+          response_serializer=OBD__Service__pb2.OBD_status.SerializeToString,
+      ),
       'Connect': grpc.unary_unary_rpc_method_handler(
           servicer.Connect,
           request_deserializer=OBD__Service__pb2.Start_OBD.FromString,
