@@ -49,6 +49,7 @@ def buildResponse(vs):
     r.engine_on=vs.engine_on
     r.obd_time=datetime.datetime.now().isoformat(' ')
     r.error=vs.last_error()
+    vs.clear_error()
     if r.engine_on :
         for c in vs.get_values():
             v=r.values.add()
