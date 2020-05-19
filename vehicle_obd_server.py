@@ -111,16 +111,28 @@ class OBD_Supervisor(threading.Thread):
                     time.sleep(10.)
             else:
                 if nb_retries >= self._connect_retry :
-                    loc_log.error("Cannot connect ot OBD after "+str(nb_retries)+" attempt")
+                    loc_log.error("Cannot connect to OBD after "+str(nb_retries)+" attempt")
                     if self.led != None : self.led.off()
                     return
                 if self.led != None : self.led.red_only(255)
+                loc_log.debug("OBD supervisor connection attempt #"+str(nb_retries))
                 self._vs.connect(self._mac)
                 self._connect_lock.release()
                 nb_retries += 1
                 if self._vs.bound() :
                     c_stat,e_stat=self._vs.status()
                     if not c_stat:
+                        # push a response
+                        r= OBD_Result()
+                        r.connected=False
+                        r.engine_on=False
+                        r.obd_time=datetime.datetime.now().isoformat(' ')
+                        r.error=self._vs.last_error()
+                        self._vs.clear_error()
+                        try:
+                            self._queue.put(r,timeout=30.)
+                        except queue.Full :
+                            pass
                         # wait 10 sec and retry
                         if self.led != None : self.led.off()
                         time.sleep(self._off_period)
@@ -161,6 +173,7 @@ class OBD_Servicer(OBD_Service_pb2_grpc.OBD_ServiceServicer):
         loc_log.debug('Vehicle service gRPC - Status request')
         res=OBD_status()
         res.connected, res.engine_on = self._vs.status()
+        # res.error=self._vs.last_error()
         res.autoconnect = SolidSenseParameters.getParam('autoconnect')
         if res.autoconnect :
             res.MAC=self._MAC
@@ -231,6 +244,11 @@ class OBD_Servicer(OBD_Service_pb2_grpc.OBD_ServiceServicer):
         self._supervisor.start_read(rules)
         self._stop_flag=False
         while True:
+            if not self._supervisor.is_alive() :
+                # the supervision thread is dead
+                # no connection to vehicle possible
+                loc_log.error("OBD supervision stopped => stop reading")
+                return
             if self._stop_flag :
                 # empty the queue
                 # to be done
@@ -244,10 +262,14 @@ class OBD_Servicer(OBD_Service_pb2_grpc.OBD_ServiceServicer):
                 if self._stop_flag:
                     return
             else:
-                resp=self._queue.get()
-                loc_log.debug("Vehicle publish with:"+resp.error)
-                yield resp
-                self._queue.task_done()
+                try:
+                    resp=self._queue.get(timeout=5.)
+                    loc_log.debug("Vehicle publish with:"+resp.error)
+                    yield resp
+                    self._queue.task_done()
+                except queue.Empty :
+                    pass
+
 
 
     def Stop(self,request,context):
